@@ -156,6 +156,7 @@ Columns and rules: [Recording runs](../../README.md#recording-runs).
 
 | Date | Ref | Model | Runs | Result | Notes |
 |---|---|---|---|---|---|
+| 2026-11-22 | `f6a8d788` (feat/1772-runtime-neutral-skill-refs) | (unrecorded, `claude -p`) | 1 | pass | #1772 pre-flight skill naming |
 | 2026-11-15 | `1087814b` (fix/harness-docs-unshipped-tools) | `opus[1m]` | 1 | pass |  |
 | 2026-11-09 | `51e73a33` (upgrade-skill) | `opus[1m]` | 5 | pass |  |
 | 2026-11-02 | `5eb60e27` (fix/pr-1749-review-round2) | (unrecorded, `claude -p`) | 3 | `step-reconcile/case-2-stale-anchor` failed 1 of 2; `step-reconcile/case-4-import-policy-grants` failed 1 of 2 |  |
