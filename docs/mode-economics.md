@@ -112,12 +112,13 @@ block runs as one command. Then the rules prose moved there too, and the
 command now emits the sections its own findings name, so there is no
 second file to read and no per-skill copy of one.
 
-The block is **635 tokens** (585 before the Subversion personal layer
+The block was **635 tokens** when that work landed (585 before the Subversion personal layer
 joined its path), against 1,679 before the check existed and
 3,271 at its peak. Each of the 65 skills is **1,075–1,081 tokens cheaper
 than on `main`** while carrying the whole check: `ci-runner-audit` 3,281 →
 2,203 (−32.9%), and the sidecar that briefly cost 2,516 tokens × 65 copies
 in the repository is gone.
+The block is 1,130 tokens today: 213 of those are the rule for naming a skill the way the reader's install answers to it (#1772), on each of the 73 skills carrying the block.
 
 The rules are 2,057 tokens across eight sections, held once in the tool. A
 run that needs one pays for one — typically 120 to 580 tokens — and the

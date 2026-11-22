@@ -240,11 +240,11 @@ installed it. Each skill's frontmatter `name:` is its **plugin directory name**
 with a colon, while the portable `/magpie-setup:setup` install puts a `magpie-` prefix
 on the **directory** it installs the skill under.
 
-| Skill (flat `skills/` name) | Portable — `/magpie-setup` snapshot | Marketplace — family plugin |
-|---|---|---|
-| `release-vote-tally` | `/magpie-release-vote-tally` | `/magpie-release-management:vote-tally` |
-| `security-issue-triage` | `/magpie-security-issue-triage` | `/magpie-security:issue-triage` |
-| `setup` | `/magpie-setup` | `/magpie-setup:setup` |
+| Skill (flat `skills/` name) | Portable — `/magpie-setup` snapshot | Marketplace — family plugin | Codex |
+|---|---|---|---|
+| `release-vote-tally` | `/magpie-release-vote-tally` | `/magpie-release-management:vote-tally` | `$magpie-release-management:vote-tally` |
+| `security-issue-triage` | `/magpie-security-issue-triage` | `/magpie-security:issue-triage` | `$magpie-security:issue-triage` |
+| `setup` | `/magpie-setup` | `/magpie-setup:setup` | `$magpie-setup:setup` |
 
 Why the difference:
 
@@ -281,11 +281,23 @@ Why the difference:
 **Which form the docs use.** Magpie's user-facing docs — the
 [quick start](../quick-start.md), the family READMEs, the top-level README —
 use the **family-plugin** form, because a marketplace install is the
-recommended path. The skills themselves refer to each other by **bare skill
-name** rather than any slash command, since a skill cannot know which way the
-reader installed it. If you are on the snapshot install, translate
+recommended path. If you are on the snapshot install, translate
 `/<plugin>:<alias>` to the single token `/magpie-<directory-name>` using the
 table above — note it is the **directory** name, not the alias.
+On Codex, on either install, mention the family-plugin form with `$` instead of `/`:
+Codex namespaces a skill by the plugin that owns it, following a symlinked skill back to that plugin.
+
+**How skills name each other.** Inside a skill, and in the pre-flight
+checker's `rules`, a skill command is written in the family-plugin form
+`/magpie-<family>:<alias> [args]` as an identifier, since a skill cannot know
+which way the reader installed it.
+The shared pre-flight block tells the agent to say each one the way the
+reader's install answers to it, using the three columns above, and to keep the
+arguments.
+On a snapshot it looks the directory name up among the installed skills rather than building it from the family and alias, which do not always combine into it.
+When it cannot tell which install it is in, it names the skill and mode in
+words instead of guessing a command.
+Naming a skill there is never permission to run it.
 
 ### Renamed commands
 

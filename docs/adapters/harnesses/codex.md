@@ -76,7 +76,7 @@ chosen. After `magpie-setup` has adopted the repository:
    `agent-iso codex`.
 2. Use `/skills` to confirm that `magpie-*` skills are visible.
 3. Invoke a skill explicitly by mentioning it with `$`, for example
-   `$magpie-security-issue-triage`, or describe a task that matches its
+   `$magpie-security:issue-triage`, or describe a task that matches its
    frontmatter description.
 4. The selected skill resolves `tools/*` commands and project placeholders in
    exactly the same way as every other runtime.
@@ -84,8 +84,15 @@ chosen. After `magpie-setup` has adopted the repository:
 An end-to-end triage therefore starts with:
 
 ~~~text
-$magpie-security-issue-triage
+$magpie-security:issue-triage
 ~~~
+
+Codex names a skill after the plugin that owns it, following a symlinked skill
+back to that plugin, so the name is `magpie-<family>:<alias>` on a snapshot
+install as well as a marketplace one. Skills write the commands they mention
+in the Claude Code marketplace form; on Codex the agent says them with `$`
+instead of `/`, per
+[Skill names differ by install method](../../setup/marketplace.md#skill-names-differ-by-install-method).
 
 There is no generated AGENTS.md per skill. `AGENTS.md` carries persistent
 repository instructions; `SKILL.md` remains the workflow source.
@@ -96,7 +103,7 @@ Prefer the installed `magpie-agent-guard` plugin for routine adopter sessions: i
 The project registration below supports framework development and snapshot installations, but its in-repository engine is writable by the agent; hook-definition trust does not protect that file’s contents.
 Report this tamper-protection gap explicitly during verification.
 
-Run `$magpie-setup` from Codex and select adopt or upgrade. The setup
+Run `$magpie-setup:setup` from Codex and select adopt or upgrade. The setup
 lifecycle:
 
 1. Creates the canonical `.agents/skills` links and harness relay links.
@@ -277,7 +284,7 @@ respectively.
 
 Also verify:
 
-- `/skills` lists `magpie-setup` and a representative workflow skill.
+- `/skills` lists `magpie-setup:setup` and a representative workflow skill.
 - `/hooks` lists the guard and shows the current definition as trusted; hooks are enabled.
 - Identify the engine location: prefer installed plugin or user-scope code outside writable roots.
   Report a source or snapshot engine under the writable workspace as a tamper-protection gap; static lint and hook trust do not close it.
