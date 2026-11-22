@@ -16,5 +16,21 @@
     "field": "reason",
     "pattern": "adopt",
     "flags": "is"
+  },
+  "has_codex_setup_command": {
+    "type": "regex",
+    "field": "commands_shown",
+    "pattern": "\\$magpie-setup:setup reconcile"
+  },
+  "has_no_marketplace_setup_command": {
+    "type": "regex",
+    "field": "commands_shown",
+    "pattern": "/magpie-setup:setup",
+    "negate": true
+  },
+  "has_marketplace_setup_command": {
+    "type": "regex",
+    "field": "commands_shown",
+    "pattern": "/magpie-setup:setup reconcile"
   }
 }
