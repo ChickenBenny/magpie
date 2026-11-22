@@ -100,6 +100,11 @@ tool adapters, and uses its own sandbox, rules, and approvals.
     (#1761). Installing it grants nothing: its native rules, like the
     Claude allow rules and sandbox exclusions, are wired only where the
     isolated setup is configured.
+15. Skills name each other in the Claude Code marketplace form
+    (`/magpie-<family>:<alias>`) as an identifier; the shared pre-flight block
+    tells the agent to say such a command to a Codex user as a `$` mention of
+    that same name (`$magpie-setup:setup`), on a snapshot install too, since
+    Codex namespaces a skill by its owning plugin, keeping its arguments (#1772).
 
 ## Out of scope
 

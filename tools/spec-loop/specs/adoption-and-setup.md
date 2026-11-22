@@ -816,6 +816,15 @@ committed version with drift detection.
     run `/magpie-setup:setup adopt` unattended — because that one must bind
     whether or not anything else was read. A command that did not run is
     never read as a pass, and is not re-derived by hand.
+    It also says how to name a skill to the user: skill commands are written
+    in the marketplace form `/magpie-<family>:<alias>` as an identifier and
+    said the way the reader's install answers to them — that form on a
+    Claude Code marketplace install, `/` and the installed `magpie-*` skill
+    directory name on a snapshot or self-adopted install (looked up by its
+    `name:`, never built), `$magpie-<family>:<alias>` on Codex — with the
+    arguments kept; when the install cannot be told, the skill and mode are
+    named in words, a skill that is not installed is reported rather than
+    replaced, and naming a skill never authorises running it (#1772).
 25. `tools/setup-preflight` resolves the deterministic half in two scopes:
     **project** (lock, snapshot drift, marketplace floor), memoised
     against the inputs it depends on so later skills in a session do not

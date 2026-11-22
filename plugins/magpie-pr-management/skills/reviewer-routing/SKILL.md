@@ -22,7 +22,7 @@ argument-hint: "[pr:<N> | issue:<N>] [--repo owner/name]"
 capability: capability:triage
 surface_hash: sha256:159e840396b7a667
 license: Apache-2.0
-measured_tokens: 3884
+measured_tokens: 4097
 ---
 
 <!-- SPDX-License-Identifier: Apache-2.0
@@ -92,8 +92,17 @@ decision, taken with the other maintainers.
 
 Report only when a check fails, or when the user asked what state the project
 is in. `/magpie-setup:setup verify` is the full diagnostic.
-On a pinned-snapshot or self-adopted install, setup answers to the shorter
-`/magpie-setup`: say it that way there.
+
+Skill commands in this skill and in the checker's `rules` are written in the marketplace form `/magpie-<family>:<alias> [args]`, as an identifier.
+When you tell the user to run one, say it the way their install answers to it, keeping the arguments:
+
+- Claude Code marketplace install: `/magpie-<family>:<alias>` (setup is `/magpie-setup:setup`).
+- Pinned-snapshot or self-adopted install in Claude Code or VS Code: `/` and the name of the installed `magpie-*` skill directory whose `name:` is `<alias>`; look it up, never build it (setup is `/magpie-setup`).
+- Codex, either install: `$magpie-<family>:<alias>` (setup is `$magpie-setup:setup`).
+
+If you cannot tell which applies, or the lookup finds nothing, name the skill and mode in words (*"the setup skill's `config` mode"*) rather than guess.
+If no installed skill matches, or more than one does, say so; never pick another.
+Naming a skill is not running it: its own confirmation rules still apply.
 
 <!-- END MAGPIE PREFLIGHT -->
 

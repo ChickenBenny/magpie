@@ -188,6 +188,7 @@ PORTABLE_FORM_ALLOWED = {
     Path("tools/skill-and-tool-validator/README.md"),  # documents the name: convention
     Path("tools/dev/README.md"),  # documents these checks
     Path("skills/setup/SKILL.md"),  # documents the portable naming convention
+    Path("tools/dev/preflight-block.md"),  # names each install's form side by side (#1772)
 }
 
 # Dev scripts must each be named in tools/dev/README.md. Suffixes rather than a
